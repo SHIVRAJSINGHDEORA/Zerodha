@@ -12,6 +12,10 @@ import dns from "dns";
 
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
+import dns from "node:dns/promises";
+
+console.log(await dns.lookup("smtp.gmail.com", { all: true }));
+
 import { router as HoldingsRoute } from "./Routes/HoldingsRoute.js";
 import { router as PositionsRoute } from "./Routes/PositionsRoute.js";
 import { router as OrdersRoute } from "./Routes/OrdersRoute.js";
