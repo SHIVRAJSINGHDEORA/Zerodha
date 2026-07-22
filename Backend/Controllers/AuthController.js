@@ -36,8 +36,8 @@ let Signup = async (req, res, next) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
     });
 
     res.status(201).json({
@@ -89,8 +89,8 @@ let Login = async (req, res, next) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
     });
 
     res
@@ -227,8 +227,9 @@ let VerifyOtp = async (req, res, next) => {
     const token = createResetToken(data.id);
 
     res.cookie("reset", token, {
-      withCredentials: true,
       httpOnly: true,
+      secure : true,
+      sameSite : "none"
     });
 
     return res.json({ message: "User verified", success: true });
