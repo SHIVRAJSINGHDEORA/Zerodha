@@ -54,7 +54,7 @@ export default function Window({ uid, id }) {
 
   let handleBuyClick = async () => {
     await axios.post(
-      "http://localhost:8080/order",
+      `${import.meta.env.VITE_API_URL}/order`,
       {
         name: uid,
         qty: qty,
@@ -65,7 +65,7 @@ export default function Window({ uid, id }) {
     );
 
     await axios.patch(
-      "http://localhost:8080/holdings/buy",
+      `${import.meta.env.VITE_API_URL}/holdings/buy`,
       {
         name: uid,
         qty: qty,
@@ -79,7 +79,7 @@ export default function Window({ uid, id }) {
 
   let handleSellClick = async () => {
     await axios.post(
-      "http://localhost:8080/order",
+      `${import.meta.env.VITE_API_URL}/order`,
       {
         name: uid,
         qty: qty,
@@ -90,7 +90,7 @@ export default function Window({ uid, id }) {
     );
 
     await axios.patch(
-      "http://localhost:8080/holdings/sell",
+      `${import.meta.env.VITE_API_URL}/holdings/sell`,
       {
         name: uid,
         qty: qty,

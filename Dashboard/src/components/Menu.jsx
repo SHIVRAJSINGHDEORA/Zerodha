@@ -18,7 +18,7 @@ export default function Menu() {
 
   let handleLogout = async () => {
     await axios.post(
-      "http://localhost:8080/logout",
+      `${import.meta.env.VITE_API_URL}/logout`,
       {},
       {
         withCredentials: true,

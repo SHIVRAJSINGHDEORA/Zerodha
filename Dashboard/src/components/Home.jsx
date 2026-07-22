@@ -17,7 +17,7 @@ export default function Home() {
     const verifyCookie = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:8080/",
+          `${import.meta.env.VITE_API_URL}/`,
           {},
           { withCredentials: true },
         );

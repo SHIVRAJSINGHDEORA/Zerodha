@@ -57,7 +57,7 @@ export default function Signup() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/signup",
+        `${import.meta.env.VITE_API_URL}/signup`,
         { ...inputvalue },
         { withCredentials: true },
       );

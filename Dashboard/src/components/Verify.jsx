@@ -45,7 +45,7 @@ export default function Verify() {
 
     try {
       const data = await axios.post(
-        "http://localhost:8080/send-otp",
+        `${import.meta.env.VITE_API_URL}/send-otp`,
         { email: email, username: "" },
         { withCredentials: true },
       );
@@ -77,7 +77,7 @@ export default function Verify() {
       }
 
       const data = await axios.post(
-        "http://localhost:8080/verify-otp",
+        `${import.meta.env.VITE_API_URL}/verify-otp`,
         { otp: otp, email: email },
         { withCredentials: true },
       );

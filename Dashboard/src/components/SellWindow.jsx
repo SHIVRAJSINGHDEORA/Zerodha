@@ -53,7 +53,7 @@ export default function BuyWindow({ uid }) {
   };
 
   let handleBuyClick = async () => {
-    await axios.post("http://localhost:8080/newOrder", {
+    await axios.post(`${import.meta.env.VITE_API_URL}/newOrder`, {
       name: uid,
       qty: qty,
       price: price,

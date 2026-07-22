@@ -45,7 +45,7 @@ export default function Login() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/login",
+        `${import.meta.env.VITE_API_URL}/login`,
         { ...inputvalue },
         { withCredentials: true },
       );

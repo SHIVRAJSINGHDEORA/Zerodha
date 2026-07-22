@@ -24,7 +24,7 @@ export default function ResetPassword() {
     const verifyCookie = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:8080/reset",
+          `${import.meta.env.VITE_API_URL}/reset`,
           {},
           { withCredentials: true },
         );
@@ -108,7 +108,7 @@ export default function ResetPassword() {
       setStyle(nextStyles);
 
       const { data } = await axios.post(
-        "http://localhost:8080/reset-pass",
+        `${import.meta.env.VITE_API_URL}/reset-pass`,
         {
           email: email,
           newPass: newPass,

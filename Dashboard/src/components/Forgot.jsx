@@ -36,7 +36,7 @@ export default function Forgot() {
       }
 
       const{ data }= await axios.post(
-        "http://localhost:8080/send-otp",
+         `${import.meta.env.VITE_API_URL}/send-otp`,
         { ...inputvalue },
         { withCredentials: true },
       );

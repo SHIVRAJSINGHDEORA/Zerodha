@@ -11,7 +11,7 @@ export default function Summary() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/holdings", {withCredentials : true})
+      .get(`${import.meta.env.VITE_API_URL}/holdings`, {withCredentials : true})
       .then((res) => {
         
         setAllHoldings(res.data);

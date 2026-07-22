@@ -9,7 +9,7 @@ export default function Orders() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/order",{withCredentials : true})
+      .get(`${import.meta.env.VITE_API_URL}/order`,{withCredentials : true})
       .then((res) => {
         setOrders(res.data);
       })
@@ -20,7 +20,7 @@ export default function Orders() {
 
   let handelRefresh = () => {
     axios
-      .get("http://localhost:8080/order" , {withCredentials : true})
+      .get(`${import.meta.env.VITE_API_URL}/order` , {withCredentials : true})
       .then((res) => {
         setOrders(res.data);
       })

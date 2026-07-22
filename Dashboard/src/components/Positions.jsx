@@ -6,7 +6,7 @@ export default function Positions() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/positions",{withCredentials : true})
+      .get(`${import.meta.env.VITE_API_URL}/positions`,{withCredentials : true})
       .then((res) => {
 
         setAllPositions(res.data);
