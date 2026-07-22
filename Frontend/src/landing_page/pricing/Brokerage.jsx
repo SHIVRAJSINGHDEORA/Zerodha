@@ -1,4 +1,4 @@
-import Tabs from "./tabs";
+import Tabs from "./Tabs";
 import "./pricing.css";
 import ChargeDisclosure from "./ChargesDisclosure";
 export default function Brokerage() {
