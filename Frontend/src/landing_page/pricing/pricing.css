@@ -1,0 +1,61 @@
+/* hero */
+
+.hero {
+  padding: 100px 0;
+}
+
+img {
+  width: 60%;
+}
+
+.custom-table thead th {
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+.custom-table tbody td {
+  border-bottom: none !important;
+  padding: 1rem;
+}
+
+.custom-table tbody tr:nth-child(odd) td {
+  background-color: #ffffff;
+}
+
+.custom-table tbody tr:nth-child(even) td {
+  background-color: #fbfbfb;
+  color: #424242;
+}
+
+.brokerage p {
+  font-size: 12px;
+}
+
+.brokerage .container ul {
+  font-size: 12px;
+}
+
+/* table */
+
+.card {
+  font-size: 0.875rem;
+}
+
+/* tabs */
+
+.tab {
+  margin: 2rem;
+  padding: 0 2rem;
+  padding-bottom: 1.65rem;
+  font-size: 1.7rem;
+  color: #387ed1;
+}
+
+.active {
+  border-bottom: 2px solid #387ed1;
+  color: #424242;
+}
+
+.tab:hover {
+  color: #424242;
+}

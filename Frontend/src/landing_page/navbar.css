@@ -1,0 +1,50 @@
+.navbar {
+  background-color: #fff;
+}
+
+.menu-btn {
+  border: none;
+  background: #fff;
+}
+
+.toggler-card  {
+  width: 10rem;
+  height: 10rem;
+}
+
+.toggler-card a {
+     text-decoration: none;
+}
+
+.mega-menu {
+  top: 4rem;
+  right: 0rem;
+  background: #ffffff;
+  position: fixed;
+
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-200%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mega-menu.active {
+  transform: translateY(0);
+}
+
+.product-desc {
+  color: #424242;
+  line-height: 1.5rem;
+}
+
+.product-text {
+  font-size: 0.9rem;
+}
+
+.toggler-card:hover img {
+  opacity: 0.7;
+}
+
+.toggler-card:hover .product-title {
+  color: #387ed1;
+}

@@ -1,0 +1,202 @@
+.body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  background-color: whitesmoke;
+  align-items: center;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-container {
+  width: 410px;
+  padding: 0.5rem 0;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.form-container h2 {
+  color: red;
+}
+
+.form-container .form .field input {
+  height: 2rem;
+  width: 19rem;
+  margin-top: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  padding: 0rem 2.1rem 0rem 1rem;
+  font-size: small;
+}
+
+.form-container input:focus {
+  border-color: none;
+  outline: none;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.warn {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.form-container .field {
+  position: relative;
+  
+}
+
+
+.form-container .field i {
+  position: absolute;
+  top: 2.2rem;
+  right: 0.8rem;
+  z-index: 1000;
+}
+
+.form-container .field .pass {
+    position: absolute;
+    top: 4.5rem;
+}
+
+
+
+.form-container .forgot {
+    align-self:flex-end;
+    /* margin-top: 1rem; */
+} 
+
+.form-container .btn {
+  background-color: red;
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border: 2px solid;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  /* margin-top: 1rem; */
+}
+
+.form-container .btn-guest {
+  background-color: gray;
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border: 2px solid;
+  width: 15rem;
+  height: 2rem;
+  border-radius: 0.75rem;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+
+.break-line {
+  position: relative;
+  width: 100%;
+  color: grey;
+}
+
+.break-line .break-body{
+  position: absolute;
+  width: 100%;
+  top: -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.break-line .break-body div {
+  width: 9rem;
+  border: 1px solid grey;
+}
+
+.break-line .break-text {
+  font-size: 0.75rem;
+}
+
+.none {
+  display: none;
+}
+
+.forgot-text {
+  margin-bottom: 0;
+}
+
+.otp-header {
+  width: 13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.otp-header i {
+  font-size: 2rem;
+  color: aliceblue;
+}
+
+.otp-header .icon {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+}
+
+.otp-header .header-text {
+  font-size: 0.8rem;
+}
+
+.otp-action {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.resend-btn {
+  border: none;
+  font-size: 1rem;
+  text-decoration: underline;
+  background-color: aliceblue;
+}

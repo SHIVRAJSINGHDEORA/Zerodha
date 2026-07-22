@@ -1,0 +1,88 @@
+.buy-container {
+  position: fixed;
+  width: 250px;
+  background-color: white;
+  border-radius: 0.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  user-select: none;
+}
+
+.stock-info {
+  border-radius: 0.2rem 0.2rem 0 0;
+  padding: 1.5rem;
+  color: white;
+}
+
+.buy-option {
+  background-color: #4184f3;
+}
+
+.sell-option {
+  background-color: #ff5722;
+}
+
+.stock-info:hover {
+  cursor: move;
+}
+
+.stock-feild {
+  padding: 0 1rem;
+}
+
+input {
+  border: none;
+  width: 150px;
+  height: 40px;
+  font-size: large;
+  outline: none;
+}
+
+.feild-lable {
+  position: relative;
+  left: 15px;
+  top: 10px;
+  background-color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.feild-input {
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.stock-btn {
+  background-color: #f9f9f9;
+  padding: 0 1rem;
+}
+
+.stock-btn button {
+  border: 1px solid #424242;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 2rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+
+  transition: box-shadow 0.3s ease;
+}
+
+.stock-btn button:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.buy-btn {
+  color: white;
+  background: #4184f3;
+}
+
+.sell-btn {
+  color: white;
+  background: #ff5722;
+}
+
+.cancel-btn {
+  color: #424242;
+  background-color: white;
+}
