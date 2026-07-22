@@ -167,6 +167,10 @@ let SendOtp = async (req, res, next) => {
       console.log("hello otp done !");
     });
 
+    import dns from "node:dns/promises";
+
+    console.log(await dns.lookup("smtp.gmail.com", { all: true }));
+
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
