@@ -8,9 +8,6 @@ import { Position } from "./Models/positions.js";
 import { Order } from "./Models/orders.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import dns from "dns";
-
-dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 import dns from "node:dns/promises";
 
