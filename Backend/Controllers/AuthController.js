@@ -183,13 +183,20 @@ let SendOtp = async (req, res, next) => {
     //   console.error("Verification failed:", err);
     // }
 
-    const info = await transporter.sendMail({
-      from: '"Kite" <thakurabugadh7773@gmail.com>',
-      to: existingUser.email,
-      subject: "Email Verification!",
-      text: `Your OTP for email verification is ${otp}`,
-      html: `<b>Your OTP for email verify is ${otp}</b>`,
-    });
+    const info = await transporter
+      .sendMail({
+        from: '"Kite" <thakurabugadh7773@gmail.com>',
+        to: existingUser.email,
+        subject: "Email Verification!",
+        text: `Your OTP for email verification is ${otp}`,
+        html: `<b>Your OTP for email verify is ${otp}</b>`,
+      })
+      .then(() => {
+        console.log("Sent");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     return res.json({
       message: "otp sent",
