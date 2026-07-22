@@ -9,9 +9,26 @@ import { Order } from "./Models/orders.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-import dns from "node:dns/promises";
+import net from "node:net";
 
-console.log(await dns.lookup("smtp.gmail.com", { all: true }));
+const socket = net.createConnection({
+  host: "smtp.gmail.com",
+  port: 587,
+});
+
+socket.setTimeout(10000);
+
+socket.on("connect", () => {
+  console.log("Connected");
+  socket.destroy();
+});
+
+socket.on("timeout", () => {
+  console.log("Timeout");
+  socket.destroy();
+});
+
+socket.on("error", console.error);
 
 import { router as HoldingsRoute } from "./Routes/HoldingsRoute.js";
 import { router as PositionsRoute } from "./Routes/PositionsRoute.js";

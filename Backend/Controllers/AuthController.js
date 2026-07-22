@@ -167,8 +167,6 @@ let SendOtp = async (req, res, next) => {
       console.log("hello otp done !");
     });
 
-    
-
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -185,20 +183,19 @@ let SendOtp = async (req, res, next) => {
     //   console.error("Verification failed:", err);
     // }
 
-    const info = await transporter
-      .sendMail({
+    try {
+      const info = await transporter.sendMail({
         from: '"Kite" <thakurabugadh7773@gmail.com>',
         to: existingUser.email,
         subject: "Email Verification!",
         text: `Your OTP for email verification is ${otp}`,
         html: `<b>Your OTP for email verify is ${otp}</b>`,
-      })
-      .then(() => {
-        console.log("Sent");
-      })
-      .catch((err) => {
-        console.log(err);
       });
+
+      console.log(info);
+    } catch (err) {
+      console.error(err);
+    }
 
     return res.json({
       message: "otp sent",
