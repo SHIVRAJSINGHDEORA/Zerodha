@@ -67,8 +67,6 @@ let Login = async (req, res, next) => {
       $or: [{ email: email }, { username: username }],
     });
 
-
-
     if (!user) {
       return res.json({
         message: "Incorrect password or email !!",
@@ -169,30 +167,29 @@ let SendOtp = async (req, res, next) => {
       console.log("hello otp done !");
     });
 
-
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
       auth: {
         user: "thakurabugadh7773@gmail.com",
-        pass: process.env.GOOGLE_APP_PASSWORD, 
+        pass: process.env.GOOGLE_APP_PASSWORD,
       },
     });
 
-    try {
-      await transporter.verify();
-      console.log("Server is ready to take our messages");
-    } catch (err) {
-      console.error("Verification failed:", err);
-    }
+    // try {
+    //   await transporter.verify();
+    //   console.log("Server is ready to take our messages");
+    // } catch (err) {
+    //   console.error("Verification failed:", err);
+    // }
 
     const info = await transporter.sendMail({
-      from: '"Kite" <thakurabugadh7773@gmail.com>', 
-      to: existingUser.email, 
-      subject: "Email Verification!", 
-      text: `Your OTP for email verification is ${otp}` , 
-      html: `<b>Your OTP for email verify is ${otp}</b>`, 
+      from: '"Kite" <thakurabugadh7773@gmail.com>',
+      to: existingUser.email,
+      subject: "Email Verification!",
+      text: `Your OTP for email verification is ${otp}`,
+      html: `<b>Your OTP for email verify is ${otp}</b>`,
     });
-
 
     return res.json({
       message: "otp sent",
@@ -228,8 +225,8 @@ let VerifyOtp = async (req, res, next) => {
 
     res.cookie("reset", token, {
       httpOnly: true,
-      secure : true,
-      sameSite : "none"
+      secure: true,
+      sameSite: "none",
     });
 
     return res.json({ message: "User verified", success: true });
@@ -242,29 +239,29 @@ let verifyResetController = async (req, res, next) => {
   const token = req.cookies.reset;
 
   if (!token) {
-    res.json({ message : "UNAUTHERIZED!!", status: false });
+    res.json({ message: "UNAUTHERIZED!!", status: false });
   }
 
   try {
     const data = jsonwebToken.verify(token, process.env.RESET_TOKEN);
-    
+
     const user = await User.findById(data._id);
 
     if (!user) {
-      return res.status(401).json({message : "Unautherized !!", status: false });
-    }
-
-    return res.json({message : "Verified !", status: true });
-  } catch (err) {
-    if (err.name == "TokenExpiredError") {
       return res
         .status(401)
-        .json({
-          message: "Session expired. Please verify again !!",
-          status: false,
-        });
+        .json({ message: "Unautherized !!", status: false });
     }
-    return res.status(401).json({message: "Unautherized !!", status: false });
+
+    return res.json({ message: "Verified !", status: true });
+  } catch (err) {
+    if (err.name == "TokenExpiredError") {
+      return res.status(401).json({
+        message: "Session expired. Please verify again !!",
+        status: false,
+      });
+    }
+    return res.status(401).json({ message: "Unautherized !!", status: false });
   }
 };
 
@@ -276,14 +273,14 @@ let ResetPass = async (req, res, next) => {
       return res.json({ message: "Enter new Password !", success: false });
     }
 
-    const hashPass = await bcrypt.hash(newPass,12);
+    const hashPass = await bcrypt.hash(newPass, 12);
 
     const data = await User.findOneAndUpdate(
       { email: email },
       { password: hashPass },
       { runValidators: true },
     );
-    
+
     if (!data) {
       return res.json({ message: "UNAUTHERIZED ACCESS!", success: false });
     }
